@@ -3,153 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paiement - Air Supplier</title>
-<link rel="stylesheet" href="style.css">
+<title>Paiement et Livraison - Air Supplier</title>
 <style>
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f8f8ff;
-  margin: 0;
-  padding: 0;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-h1 { color: #4b0082; margin-top: 30px; }
-.container {
-  background: rgba(255,255,255,0.95);
-  padding: 30px;
-  margin-top: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  width: 90%;
-  max-width: 500px;
-}
-.recap { margin-bottom: 25px; }
-.recap p { font-size: 1.1rem; }
-.payment-method { margin-bottom: 20px; }
-.payment-option {
-  margin-bottom: 10px;
-  background-color: #eee;
-  padding: 10px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-.payment-option:hover { background-color: #dcd3ff; }
-.back-button {
-  background: linear-gradient(-134deg, #102157, #070516);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-  margin-top: 15px;
-}
-.back-button:hover { box-shadow: 0 0 10px #9d4edd; }
-form { margin-top: 15px; background: #f4f4ff; padding: 20px; border-radius: 10px;}
-form label { display: block; margin-top: 10px; font-weight: bold;}
-form input { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc;}
-form button { margin-top: 15px; background-color: #6a0dad; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer; width: 100%;}
-form button:hover { background-color: #4b007a;}
-.crypto-address { font-family: monospace; background: #f5f5f5; padding: 8px; border-radius: 6px; font-size: 0.9rem; }
-.warning { margin-top: 20px; color: red; font-weight: bold; }
+body { font-family: 'Montserrat', sans-serif; background-color: #f8f8ff; margin:0; padding:0; color:#222; display:flex; flex-direction:column; align-items:center; }
+h1 { color: #4b0082; margin-top:30px; }
+.container { background: rgba(255,255,255,0.95); padding:30px; margin-top:30px; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.2); width:90%; max-width:600px; }
+.recap { margin-bottom:25px; }
+.recap p { font-size:1.1rem; }
+form { margin-top:15px; background:#f4f4ff; padding:20px; border-radius:10px;}
+form label { display:block; margin-top:10px; font-weight:bold; }
+form input { width:100%; padding:8px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+form button { margin-top:15px; background-color:#6a0dad; color:#fff; padding:10px; border:none; border-radius:5px; cursor:pointer; width:100%; }
+form button:hover { background-color:#4b007a; }
+.warning { margin-top:20px; color:red; font-weight:bold; }
 </style>
 </head>
 <body>
-<h1>Page de Paiement</h1>
+
+<h1>Commande et Livraison</h1>
 <div class="container">
 
-  <!-- Récapitulatif de la commande -->
+  <!-- Récapitulatif -->
   <div class="recap">
     <h2>Récapitulatif de votre commande</h2>
+    <p><strong>Produit :</strong> <span id="item_name"></span></p>
     <p><strong>Quantité :</strong> <span id="quantity"></span></p>
     <p><strong>Total :</strong> <span id="price"></span> €</p>
   </div>
 
-  <!-- Moyens de paiement -->
-  <div class="payment-method">
-    <h3>Moyens de paiement disponibles :</h3>
-
-    <!-- Virement bancaire -->
-    <div class="payment-option">
-      <strong>💳 Virement bancaire</strong><br>
-      <p>RIB : <span class="RIB"> FR76 4061 88033700 0406 7868 697</span></p>
-    </div>
-
-    <!-- Bitcoin -->
-    <div class="payment-option">
-      <strong>₿ Bitcoin (BTC)</strong><br>
-      <p>Adresse BTC : <span class="crypto-address">bc1qexamplebtcaddress987654321</span></p>
-    </div>
-
-    <!-- Litecoin -->
-    <div class="payment-option">
-      <strong>Ł Litecoin (LTC)</strong><br>
-      <p>Adresse LTC : <span class="crypto-address">ltc1qexampleltcaddress987654321</span></p>
-    </div>
-  </div>
-
-  <!-- Mise en garde -->
   <div class="warning">
     ⚠️ Attention : Toute erreur de montant ou de destinataire n'est pas de notre responsabilité.
   </div>
 
-  <!-- Formulaire email pour confirmer paiement -->
-  <form id="emailForm">
-    <h3>Confirmer votre paiement</h3>
-    <label for="email">Votre adresse email :</label>
+  <!-- Formulaire de livraison et paiement -->
+  <form id="orderForm">
+    <h3>Informations de livraison</h3>
+    <label for="fullname">Nom et prénom :</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Jean Dupont" required>
+
+    <label for="email">Adresse email :</label>
     <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required>
-    <button type="submit">Envoyer la confirmation</button>
+
+    <label for="address">Adresse :</label>
+    <input type="text" id="address" name="address" placeholder="123 rue Exemple" required>
+
+    <label for="city">Ville :</label>
+    <input type="text" id="city" name="city" placeholder="Paris" required>
+
+    <label for="zipcode">Code postal :</label>
+    <input type="text" id="zipcode" name="zipcode" placeholder="75001" required>
+
+    <label for="country">Pays :</label>
+    <input type="text" id="country" name="country" placeholder="France" required>
+
+    <button type="submit">Envoyer la commande</button>
   </form>
 
-  <a href="index.html" class="back-button">← Retour à la boutique</a>
 </div>
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  // 🔹 Initialisation EmailJS avec ta clé publique
-  emailjs.init("bPWY-DzVkc52MNlE0"); // ✅ ta clé publique
+emailjs.init("bPWY-DzVkc52MNlE0"); // Ta clé publique
 
-  // 🔹 Récupération des paramètres de l'URL
-  const params = new URLSearchParams(window.location.search);
-  const quantity = params.get('quantity') || '1';
-  const price = params.get('price') || '0.00';
-  const item_name = params.get('item_name') || 'Produit';
+// Récupération des paramètres URL
+const params = new URLSearchParams(window.location.search);
+const item_name = params.get('item_name') || 'Produit';
+const quantity = params.get('quantity') || '1';
+const price = params.get('price') || '0.00';
 
-  document.getElementById('quantity').textContent = quantity;
-  document.getElementById('price').textContent = price;
+document.getElementById('item_name').textContent = item_name;
+document.getElementById('quantity').textContent = quantity;
+document.getElementById('price').textContent = price;
 
-  // 🔹 Gestion du formulaire email
-  const emailForm = document.getElementById('emailForm');
+const orderForm = document.getElementById('orderForm');
 
-  emailForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+orderForm.addEventListener('submit', function(e) {
+  e.preventDefault();
 
-    const emailValue = document.getElementById('email').value;
+  // Récupération des valeurs du formulaire
+  const fullname = document.getElementById('fullname').value;
+  const email = document.getElementById('email').value;
+  const address = document.getElementById('address').value;
+  const city = document.getElementById('city').value;
+  const zipcode = document.getElementById('zipcode').value;
+  const country = document.getElementById('country').value;
 
-    // 🔹 Paramètres du template
-    const templateParams = {
-      to_email: "romaincoynel83@gmail.com",
-      from_email: emailValue,
-      item_name: item_name,
-      quantity: quantity,
-      price: price
-    };
+  // 🔹 Email à toi (Admin)
+  const adminParams = {
+    to_email: "romaincoynel83@gmail.com",
+    fullname, email, address, city, zipcode, country,
+    item_name, quantity, price
+  };
 
-    // 🔹 Remplace 'service_id' et 'template_id' par tes vrais IDs EmailJS
-    emailjs.send('service_id', 'template_id', templateParams)
-      .then(function(response) {
-         alert("Confirmation envoyée avec succès !");
-         emailForm.reset();
-      }, function(error) {
-         alert("Erreur lors de l'envoi du mail. Veuillez réessayer.");
-         console.error(error);
-      });
-  });
+  // 🔹 Email de confirmation au client
+  const customerParams = {
+    to_email: email,
+    fullname, address, city, zipcode, country,
+    item_name, quantity, price
+  };
+
+  // 🔹 Remplacer par vos vrais IDs EmailJS
+  const serviceID = "service_id";  
+  const templateAdmin = "template_admin";  
+  const templateClient = "template_client";  
+
+  // Envoi à l'admin
+  emailjs.send(serviceID, templateAdmin, adminParams)
+    .then(() => {
+      // Envoi au client
+      return emailjs.send(serviceID, templateClient, customerParams);
+    })
+    .then(() => {
+      alert("Commande envoyée ! Un email de confirmation a été envoyé au client.");
+      orderForm.reset();
+    })
+    .catch(err => {
+      alert("Erreur lors de l'envoi de la commande. Veuillez réessayer.");
+      console.error(err);
+    });
+
+});
 </script>
 </body>
 </html>
