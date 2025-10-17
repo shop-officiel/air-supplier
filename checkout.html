@@ -73,14 +73,6 @@
       box-shadow: 0 0 10px #9d4edd;
     }
 
-    .crypto-address {
-      font-family: monospace;
-      background: #f5f5f5;
-      padding: 8px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-    }
-
     form {
       margin-top: 20px;
       background: #f4f4ff;
@@ -132,9 +124,16 @@
 
       <div class="payment-option">
         <strong>💳 Virement bancaire</strong><br>
-        <p>Nom : Air Supplier SARL</p>
-        <p>IBAN : <span class="crypto-address">FR76 1234 5678 9012 3456 7890 123</span></p>
-        <p>Code BIC : <span class="crypto-address">ABCDEFGHXXX</span></p>
+        <!-- Ici on remplace l’exemple de RIB par le formulaire -->
+        <form id="checkout-form">
+          <label>Nom :</label>
+          <input type="text" name="name" placeholder="Votre nom" required>
+
+          <label>Email :</label>
+          <input type="email" name="email" placeholder="Votre e-mail" required>
+
+          <button type="submit">Recevoir le RIB</button>
+        </form>
       </div>
 
       <div class="payment-option">
@@ -148,25 +147,13 @@
       </div>
     </div>
 
-    <!-- Formulaire pour envoyer le RIB par EmailJS -->
-    <form id="checkout-form">
-      <h3>Recevez votre RIB par e-mail :</h3>
-      <label>Nom :</label>
-      <input type="text" name="name" placeholder="Votre nom" required>
-      
-      <label>Email :</label>
-      <input type="email" name="email" placeholder="Votre e-mail" required>
-
-      <button type="submit">Recevoir le RIB</button>
-    </form>
-
     <a href="index.html" class="back-button">← Retour à la boutique</a>
   </div>
 
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     // Initialisation EmailJS
-    emailjs.init("kronix92i@gmail.com"); // remplace par ton User ID EmailJS
+    emailjs.init("TON_USER_ID"); // remplace par ton User ID EmailJS
 
     // Récupère les paramètres de l'URL
     const params = new URLSearchParams(window.location.search);
