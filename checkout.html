@@ -70,10 +70,9 @@ form button:hover { background-color: #4b007a;}
   <div class="payment-method">
     <h3>Moyens de paiement disponibles :</h3>
 
-    <!-- Bloc Virement bancaire avec formulaire -->
+    <!-- Virement bancaire avec formulaire -->
     <div class="payment-option">
       <strong>💳 Virement bancaire</strong><br>
-
       <form id="checkout-form">
         <p><strong>Rentrez votre adresse e-mail pour recevoir le RIB auquel envoyer l'argent :</strong></p>
 
@@ -87,13 +86,13 @@ form button:hover { background-color: #4b007a;}
       </form>
     </div>
 
-    <!-- BTC -->
+    <!-- Bitcoin -->
     <div class="payment-option">
       <strong>₿ Bitcoin (BTC)</strong><br>
       <p>Adresse BTC : <span class="crypto-address">bc1qexamplebtcaddress987654321</span></p>
     </div>
 
-    <!-- LTC -->
+    <!-- Litecoin -->
     <div class="payment-option">
       <strong>Ł Litecoin (LTC)</strong><br>
       <p>Adresse LTC : <span class="crypto-address">ltc1qexampleltcaddress987654321</span></p>
@@ -105,7 +104,7 @@ form button:hover { background-color: #4b007a;}
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-emailjs.init("TON_USER_ID"); // remplace par ton User ID EmailJS
+emailjs.init("kronix92i@gmai.com"); // remplace par ta Public Key EmailJS
 
 // Récupération des paramètres de l'URL
 const params = new URLSearchParams(window.location.search);
@@ -121,7 +120,7 @@ document.getElementById("checkout-form").addEventListener("submit", function(eve
   event.preventDefault();
   const form = this;
 
-  // Envoi mail au client
+  // Mail client
   emailjs.send("checkout-mail", "RIB_template", {
     name: form.name.value,
     email: form.email.value,
@@ -135,7 +134,7 @@ document.getElementById("checkout-form").addEventListener("submit", function(eve
     console.error("Erreur mail client : ", error);
   });
 
-  // Envoi mail au propriétaire
+  // Mail propriétaire
   emailjs.send("checkout-mail", "OWNER_template", {
     owner_email: "Romaincoynel83@gmail.com",
     client_name: form.name.value,
