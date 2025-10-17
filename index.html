@@ -5,6 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>♡ Air Supplier ♡</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styles pour aligner les inputs de quantité */
+    .quantity-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* espace entre label et input */
+        margin-bottom: 10px;
+    }
+
+    .quantity-container label {
+        min-width: 80px; /* même largeur pour tous les labels */
+    }
+
+    .articles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .article {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        color: #fff;
+        width: 300px;
+        text-align: center;
+    }
+
+    .article-images img {
+        width: 80px;
+        margin: 5px;
+    }
+
+    .pay-button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #ff4081;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .pay-button:hover {
+        background-color: #e73370;
+    }
+  </style>
 </head>
 <body>
   <h1 class="Bienvenue">Bienvenue sur Air supplier !</h1>
@@ -24,21 +73,22 @@
     <a href="apropos.html" class="div5">En savoir plus</a>
   </div>
 
-    <h2 style="text-align:center; margin-top:50px;color: aliceblue;">Store :</h2>
-    <div class="articles">
+  <h2 style="text-align:center; margin-top:50px;color: aliceblue;">Store :</h2>
+  <div class="articles">
 
     <!-- Article 1 -->
     <div class="article">
         <h3>AirPods Pro 2</h3>
-
         <div class="article-images">
             <img src="photo1.jpg" alt="AirPods Pro 2">
             <img src="photo2.jpg" alt="AirPods Pro 2">
             <img src="photo3.jpg" alt="AirPods Pro 2">
         </div>
 
-        <label for="quantity">Quantité :</label>
-        <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="94.99">
+        <div class="quantity-container">
+            <label for="quantity">Quantité :</label>
+            <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="94.99">
+        </div>
 
         <p>Prix : 
             <span class="original-price" style="text-decoration: line-through;">94.99</span> € 
@@ -46,7 +96,6 @@
         </p>
 
         <button class="pay-button">Procéder au paiement</button>
-
     </div>
 
     <!-- Article 2 -->
@@ -55,13 +104,15 @@
         <p>+1000 parfums différents, demandez un devis au bas de la page.</p>
 
         <div class="article-images">
-            <img src="photolvcd.jpg" alt="AirPods Pro 2">
-            <img src="photolvcd2.jpg" alt="AirPods Pro 2">
-            <img src="photolvcd3.jpg" alt="AirPods Pro 2">
+            <img src="photolvcd.jpg" alt="Louis Vuitton">
+            <img src="photolvcd2.jpg" alt="Louis Vuitton">
+            <img src="photolvcd3.jpg" alt="Louis Vuitton">
         </div>
 
-        <label for="quantity">Quantité :</label>
-        <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="299.99">
+        <div class="quantity-container">
+            <label for="quantity">Quantité :</label>
+            <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="299.99">
+        </div>
 
         <p>Prix : 
             <span class="original-price" style="text-decoration: line-through;">299.99</span> € 
@@ -71,7 +122,7 @@
         <button class="pay-button">Procéder au paiement</button>
     </div>
 
-</div>
+  </div>
 
 <script>
 document.querySelectorAll('.article').forEach(article => {
@@ -107,6 +158,3 @@ document.querySelectorAll('.article').forEach(article => {
 </script>
 </body>
 </html>
-
-
-
