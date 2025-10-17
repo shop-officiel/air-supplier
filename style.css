@@ -11,7 +11,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
-  background-image: url("https://images.unsplash.com/photo-1598347104365-2263f1870f8a?fm=jpg&q=60&w=3000"); /* ton image */
+  background-image: url("https://images.unsplash.com/photo-1598347104365-2263f1870f8a?fm=jpg&q=60&w=3000");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -179,6 +179,7 @@ textarea {
 
 /* --- Media Queries pour mobile --- */
 @media (max-width: 768px) {
+  /* Articles et layout */
   .articles {
     flex-direction: column;
     gap: 20px;
@@ -209,6 +210,20 @@ textarea {
   .div5 {
     bottom: 10px;
     right: 10px;
+  }
+
+  /* Titres pour téléphone uniquement */
+  .Bienvenue {
+    font-size: 50px;
+    height: auto;
+    text-align: center;
+  }
+
+  .slogan {
+    font-size: 18px;
+    bottom: 0;
+    margin-left: 0;
+    text-align: center;
   }
 }
   </style>
@@ -316,4 +331,3 @@ document.querySelectorAll('.article').forEach(article => {
 </script>
 </body>
 </html>
-
