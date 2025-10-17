@@ -52,7 +52,7 @@
     <!-- Article 2 -->
     <div class="article">
         <h3>Louis Vuitton, California Dream</h3>
-        <p>+1000 différents, demandez un devis au bas de la page.</p>
+        <p>+1000 parfums différents, demandez un devis au bas de la page.</p>
 
         <div class="article-images">
             <img src="photolvcd.jpg" alt="AirPods Pro 2">
@@ -65,7 +65,7 @@
 
         <p>Prix : 
             <span class="original-price" style="text-decoration: line-through;">299.99</span> € 
-            <span class="discounted-price">299.99</span> €
+            <span class="discounted-price">99.99</span> €
         </p>
 
         <button class="pay-button">Procéder au paiement</button>
@@ -101,13 +101,12 @@ document.querySelectorAll('.article').forEach(article => {
         const quantity = parseInt(quantityInput.value);
         const totalPrice = parseFloat(discountedPriceDisplay.textContent);
 
-        // Ici tu peux rediriger vers la page de paiement ou intégrer Stripe/PayPal
-        // Exemple de redirection : 
         window.location.href = `checkout.html?quantity=${quantity}&price=${totalPrice}`;
     });
 });
 </script>
 </body>
 </html>
+
 
 
