@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>♡ Air Supplier ♡</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
 /* --- Général --- */
 body {
   margin: 0;
@@ -91,7 +83,6 @@ textarea {
   box-shadow: 0 0 15px #9d4edd;
 }
 
-/* Bouton En savoir plus */
 .div5 {
   position: fixed;
   bottom: 20px;
@@ -134,29 +125,29 @@ textarea {
 }
 
 .article-images {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 0;
 }
 
 .article-images img {
-    width: 30%;
-    border-radius: 10px;
-    object-fit: cover;
+  width: 30%;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 /* Inputs de quantité */
 .quantity-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .quantity-container label {
-    min-width: 80px;
+  min-width: 80px;
 }
 
 .range_article{
@@ -175,6 +166,13 @@ textarea {
 .range_article:focus {
   border-color: #9d4edd;
   box-shadow: 0 0 15px #9d4edd;
+}
+
+/* Titres store */
+.store-title {
+  text-align: center;
+  margin-top: 50px;
+  color: aliceblue;
 }
 
 /* --- Media Queries pour mobile --- */
@@ -226,108 +224,3 @@ textarea {
     text-align: center;
   }
 }
-  </style>
-</head>
-<body>
-  <h1 class="Bienvenue">Bienvenue sur Air supplier !</h1>
-  <h1 class="slogan">Air supplier <small>Votre vie, Votre luxe.</small></h1>
-
-  <form action="https://formspree.io/f/xnngwpvp" method="POST">
-    <div>
-      <input type="email" name="mail" placeholder="exemple@mail.com">
-    </div>
-    <div>
-      <textarea name="message" cols="50" rows="10" placeholder="J'ai un problème pour le paiement ..."></textarea>
-    </div>
-    <button class="Envoyer" type="submit">Envoyer</button>
-  </form>
-
-  <div>
-    <a href="apropos.html" class="div5">En savoir plus</a>
-  </div>
-
-  <h2 style="text-align:center; margin-top:50px;color: aliceblue;">Store :</h2>
-  <div class="articles">
-
-    <!-- Article 1 -->
-    <div class="article">
-        <h3>AirPods Pro 2</h3>
-        <div class="article-images">
-            <img src="photo1.jpg" alt="AirPods Pro 2">
-            <img src="photo2.jpg" alt="AirPods Pro 2">
-            <img src="photo3.jpg" alt="AirPods Pro 2">
-        </div>
-
-        <div class="quantity-container">
-            <label for="quantity">Quantité :</label>
-            <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="94.99">
-        </div>
-
-        <p>Prix : 
-            <span class="original-price" style="text-decoration: line-through;">94.99</span> € 
-            <span class="discounted-price">94.99</span> €
-        </p>
-
-        <button class="pay-button">Procéder au paiement</button>
-    </div>
-
-    <!-- Article 2 -->
-    <div class="article">
-        <h3>Louis Vuitton, California Dream</h3>
-        <p>+1000 parfums différents, demandez un devis au bas de la page.</p>
-
-        <div class="article-images">
-            <img src="photolvcd.jpg" alt="Louis Vuitton">
-            <img src="photolvcd2.jpg" alt="Louis Vuitton">
-            <img src="photolvcd3.jpg" alt="Louis Vuitton">
-        </div>
-
-        <div class="quantity-container">
-            <label for="quantity">Quantité :</label>
-            <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="299.99">
-        </div>
-
-        <p>Prix : 
-            <span class="original-price" style="text-decoration: line-through;">299.99</span> € 
-            <span class="discounted-price">99.99</span> €
-        </p>
-
-        <button class="pay-button">Procéder au paiement</button>
-    </div>
-
-  </div>
-
-<script>
-document.querySelectorAll('.article').forEach(article => {
-    const quantityInput = article.querySelector('.quantity');
-    const originalPriceDisplay = article.querySelector('.original-price');
-    const discountedPriceDisplay = article.querySelector('.discounted-price');
-    const payButton = article.querySelector('.pay-button');
-    const unitPrice = parseFloat(quantityInput.dataset.price);
-
-    function updatePrice() {
-        let quantity = parseInt(quantityInput.value);
-        if(quantity < 1) quantity = 1;
-        if(quantity > 10) quantity = 10;
-        quantityInput.value = quantity;
-
-        const totalOriginal = (unitPrice * quantity).toFixed(2);
-        const totalDiscounted = ((unitPrice - unitPrice * 0.02 * (quantity - 1)) * quantity).toFixed(2);
-
-        originalPriceDisplay.textContent = totalOriginal;
-        discountedPriceDisplay.textContent = totalDiscounted;
-    }
-
-    quantityInput.addEventListener('input', updatePrice);
-    updatePrice();
-
-    payButton.addEventListener('click', () => {
-        const quantity = parseInt(quantityInput.value);
-        const totalPrice = parseFloat(discountedPriceDisplay.textContent);
-
-        window.location.href = `checkout.html?quantity=${quantity}&price=${totalPrice}`;
-    });
-});
-</script>
-</body>
-</html>
