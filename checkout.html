@@ -1,190 +1,170 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paiement - Air Supplier</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f8f8ff;
-      margin: 0;
-      padding: 0;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      color: #4b0082;
-      margin-top: 30px;
-    }
-
-    .container {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      margin-top: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      width: 90%;
-      max-width: 500px;
-    }
-
-    .recap {
-      margin-bottom: 25px;
-    }
-
-    .recap p {
-      font-size: 1.1rem;
-    }
-
-    .payment-method {
-      margin-bottom: 20px;
-    }
-
-    .payment-option {
-      margin-bottom: 10px;
-      background-color: #eee;
-      padding: 10px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .payment-option:hover {
-      background-color: #dcd3ff;
-    }
-
-    .back-button {
-      background: linear-gradient(-134deg, #102157, #070516);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-block;
-      margin-top: 15px;
-    }
-
-    .back-button:hover {
-      box-shadow: 0 0 10px #9d4edd;
-    }
-
-    form {
-      margin-top: 20px;
-      background: #f4f4ff;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    form label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    form input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    form button {
-      margin-top: 15px;
-      background-color: #6a0dad;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    form button:hover {
-      background-color: #4b007a;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement - Air Supplier</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f8ff;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 { color: #4b0082; margin-top: 30px; }
+.container {
+  background: rgba(255,255,255,0.95);
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 500px;
+}
+.recap { margin-bottom: 25px; }
+.recap p { font-size: 1.1rem; }
+.payment-method { margin-bottom: 20px; }
+.payment-option {
+  margin-bottom: 10px;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.payment-option:hover { background-color: #dcd3ff; }
+.back-button {
+  background: linear-gradient(-134deg, #102157, #070516);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 15px;
+}
+.back-button:hover { box-shadow: 0 0 10px #9d4edd; }
+form { margin-top: 15px; background: #f4f4ff; padding: 20px; border-radius: 10px; display: none;}
+form label { display: block; margin-top: 10px; font-weight: bold;}
+form input, form select { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc;}
+form button { margin-top: 15px; background-color: #6a0dad; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer; width: 100%;}
+form button:hover { background-color: #4b007a;}
+.jai-paye-btn { margin-top: 10px; background-color: #ff6600; color: #fff; padding: 10px; border: none; border-radius:5px; cursor:pointer; width:100%;}
+.jai-paye-btn:hover { background-color: #cc5200;}
+</style>
 </head>
 <body>
-  <h1>Page de Paiement</h1>
-  <div class="container">
-    <div class="recap">
-      <h2>Récapitulatif de votre commande</h2>
-      <p><strong>Quantité :</strong> <span id="quantity"></span></p>
-      <p><strong>Total :</strong> <span id="price"></span> €</p>
-    </div>
-
-    <div class="payment-method">
-      <h3>Moyens de paiement disponibles :</h3>
-
-      <div class="payment-option">
-  <strong>💳 Virement bancaire</strong><br>
-  <p>Nom : Air Supplier SARL</p>
-  <form id="checkout-form">
-    <p><strong>Rentrez votre adresse e-mail pour recevoir le RIB auquel envoyer l'argent :</strong></p>
-
-    <label>Email :</label>
-    <input type="email" name="email" placeholder="Votre e-mail" required>
-
-    <label>Nom :</label>
-    <input type="text" name="name" placeholder="Votre nom" required>
-
-    <button type="submit">Envoyer le RIB</button>
-  </form>
-</div>
-
-      <div class="payment-option">
-        <strong>₿ Bitcoin (BTC)</strong><br>
-        <p>Adresse BTC : <span class="crypto-address">bc1qexamplebtcaddress987654321</span></p>
-      </div>
-
-      <div class="payment-option">
-        <strong>Ł Litecoin (LTC)</strong><br>
-        <p>Adresse LTC : <span class="crypto-address">ltc1qexampleltcaddress987654321</span></p>
-      </div>
-    </div>
-
-    <a href="index.html" class="back-button">← Retour à la boutique</a>
+<h1>Page de Paiement</h1>
+<div class="container">
+  <div class="recap">
+    <h2>Récapitulatif de votre commande</h2>
+    <p><strong>Quantité :</strong> <span id="quantity"></span></p>
+    <p><strong>Total :</strong> <span id="price"></span> €</p>
   </div>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    // Initialisation EmailJS
-    emailjs.init("kronix92i@gmail.com"); // remplace par ton User ID EmailJS
+  <div class="payment-method">
+    <h3>Moyens de paiement disponibles :</h3>
 
-    // Récupère les paramètres de l'URL
-    const params = new URLSearchParams(window.location.search);
-    const quantity = params.get('quantity') || '1';
-    const price = params.get('price') || '0.00';
-    const item_name = params.get('item_name') || 'Produit';
+    <div class="payment-option">
+      <strong>💳 Virement bancaire</strong><br>
+      <p>Nom : Air Supplier SARL</p>
+      <p>IBAN : <span class="crypto-address">FR76 1234 5678 9012 3456 7890 123</span></p>
+      <p>Code BIC : <span class="crypto-address">ABCDEFGHXXX</span></p>
+    </div>
 
-    document.getElementById('quantity').textContent = quantity;
-    document.getElementById('price').textContent = price;
+    <div class="payment-option">
+      <strong>₿ Bitcoin (BTC)</strong><br>
+      <p>Adresse BTC : <span class="crypto-address">bc1qexamplebtcaddress987654321</span></p>
+    </div>
 
-    // Soumission du formulaire
-    document.getElementById("checkout-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const form = this;
+    <div class="payment-option">
+      <strong>Ł Litecoin (LTC)</strong><br>
+      <p>Adresse LTC : <span class="crypto-address">ltc1qexampleltcaddress987654321</span></p>
+    </div>
+  </div>
 
-      emailjs.send("checkout-mail", "RIB_template", {
-        name: form.name.value,
-        email: form.email.value,
-        item_name: item_name,
-        quantity: quantity,
-        price: price
-      })
-      .then(function() {
-        alert("RIB envoyé avec succès ! Vérifiez votre e-mail.");
-        form.reset();
-      }, function(error) {
-        alert("Erreur, veuillez réessayer : " + JSON.stringify(error));
-      });
-    });
-  </script>
+  <button class="jai-paye-btn" id="show-payment-form">J'ai payé</button>
+
+  <form id="payment-confirm-form">
+    <p>Remplissez ce formulaire pour confirmer votre paiement :</p>
+    <label>Nom :</label>
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <label>Email :</label>
+    <input type="email" name="email" placeholder="Votre e-mail" required>
+    <label>Mode de paiement :</label>
+    <select name="payment_method" required>
+      <option value="Virement bancaire">Virement bancaire</option>
+      <option value="Bitcoin">Bitcoin (BTC)</option>
+      <option value="Litecoin">Litecoin (LTC)</option>
+    </select>
+    <label>Quantité :</label>
+    <input type="number" name="quantity" id="confirm-quantity" min="1" value="1" required>
+    <p>Total : <span id="confirm-price"></span> €</p>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <a href="index.html" class="back-button">← Retour à la boutique</a>
+</div>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+emailjs.init("TON_USER_ID"); // remplace par ton User ID EmailJS
+
+// Récupération paramètres URL
+const params = new URLSearchParams(window.location.search);
+const quantity = parseInt(params.get('quantity')) || 1;
+const price = parseFloat(params.get('price')) || 0.00;
+const item_name = params.get('item_name') || 'Produit';
+
+document.getElementById('quantity').textContent = quantity;
+document.getElementById('price').textContent = price.toFixed(2);
+
+const showFormBtn = document.getElementById('show-payment-form');
+const paymentForm = document.getElementById('payment-confirm-form');
+const confirmQuantity = document.getElementById('confirm-quantity');
+const confirmPrice = document.getElementById('confirm-price');
+
+confirmQuantity.value = quantity;
+confirmPrice.textContent = price.toFixed(2);
+
+confirmQuantity.addEventListener('input', ()=>{
+  const qty = parseInt(confirmQuantity.value);
+  confirmPrice.textContent = (qty * (price/quantity)).toFixed(2);
+});
+
+showFormBtn.addEventListener('click', ()=>{
+  paymentForm.style.display = 'block';
+  showFormBtn.style.display = 'none';
+});
+
+paymentForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = this;
+  const totalPrice = parseFloat(confirmPrice.textContent);
+
+  emailjs.send("checkout-mail", "OWNER_template", {
+    owner_email: "Romaincoynel83@gmail.com",
+    client_name: form.name.value,
+    client_email: form.email.value,
+    payment_method: form.payment_method.value,
+    item_name: item_name,
+    quantity: confirmQuantity.value,
+    price: totalPrice
+  })
+  .then(()=>{
+    alert("Confirmation envoyée ! Vous avez payé.");
+    form.reset();
+    form.style.display = 'none';
+  },(error)=>{
+    alert("Erreur lors de l'envoi : "+JSON.stringify(error));
+  });
+});
+</script>
 </body>
 </html>
