@@ -111,10 +111,10 @@ form button:hover { background-color: #4b007a;}
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  // Initialisation EmailJS
-  emailjs.init("kronix92i@gmai.com"); // remplace par ta Public Key EmailJS
+  // 🔹 Initialisation EmailJS avec ta clé publique
+  emailjs.init("bPWY-DzVkc52MNlE0"); // ✅ ta clé publique
 
-  // Récupération des paramètres de l'URL
+  // 🔹 Récupération des paramètres de l'URL
   const params = new URLSearchParams(window.location.search);
   const quantity = params.get('quantity') || '1';
   const price = params.get('price') || '0.00';
@@ -123,7 +123,7 @@ form button:hover { background-color: #4b007a;}
   document.getElementById('quantity').textContent = quantity;
   document.getElementById('price').textContent = price;
 
-  // Gestion du formulaire email
+  // 🔹 Gestion du formulaire email
   const emailForm = document.getElementById('emailForm');
 
   emailForm.addEventListener('submit', function(e) {
@@ -131,6 +131,7 @@ form button:hover { background-color: #4b007a;}
 
     const emailValue = document.getElementById('email').value;
 
+    // 🔹 Paramètres du template
     const templateParams = {
       to_email: "romaincoynel83@gmail.com",
       from_email: emailValue,
@@ -139,6 +140,7 @@ form button:hover { background-color: #4b007a;}
       price: price
     };
 
+    // 🔹 Remplace 'service_id' et 'template_id' par tes vrais IDs EmailJS
     emailjs.send('service_id', 'template_id', templateParams)
       .then(function(response) {
          alert("Confirmation envoyée avec succès !");
