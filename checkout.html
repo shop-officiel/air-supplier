@@ -66,6 +66,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       display: inline-block;
+      margin-top: 15px;
     }
 
     .back-button:hover {
@@ -78,6 +79,42 @@
       padding: 8px;
       border-radius: 6px;
       font-size: 0.9rem;
+    }
+
+    form {
+      margin-top: 20px;
+      background: #f4f4ff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    form input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      margin-top: 15px;
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #4b007a;
     }
   </style>
 </head>
@@ -111,17 +148,54 @@
       </div>
     </div>
 
+    <!-- Formulaire pour envoyer le RIB par EmailJS -->
+    <form id="checkout-form">
+      <h3>Recevez votre RIB par e-mail :</h3>
+      <label>Nom :</label>
+      <input type="text" name="name" placeholder="Votre nom" required>
+      
+      <label>Email :</label>
+      <input type="email" name="email" placeholder="Votre e-mail" required>
+
+      <button type="submit">Recevoir le RIB</button>
+    </form>
+
     <a href="index.html" class="back-button">← Retour à la boutique</a>
   </div>
 
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    // Récupère les paramètres de l'URL (ex: ?quantity=2&price=189.98)
-    const params = new URLSearchParams(window.location.search);
-    const quantity = params.get('quantity');
-    const price = params.get('price');
+    // Initialisation EmailJS
+    emailjs.init("TON_USER_ID"); // remplace par ton User ID EmailJS
 
-    document.getElementById('quantity').textContent = quantity || '1';
-    document.getElementById('price').textContent = price || '0.00';
+    // Récupère les paramètres de l'URL
+    const params = new URLSearchParams(window.location.search);
+    const quantity = params.get('quantity') || '1';
+    const price = params.get('price') || '0.00';
+    const item_name = params.get('item_name') || 'Produit';
+
+    document.getElementById('quantity').textContent = quantity;
+    document.getElementById('price').textContent = price;
+
+    // Soumission du formulaire
+    document.getElementById("checkout-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const form = this;
+
+      emailjs.send("checkout-mail", "RIB_template", {
+        name: form.name.value,
+        email: form.email.value,
+        item_name: item_name,
+        quantity: quantity,
+        price: price
+      })
+      .then(function() {
+        alert("RIB envoyé avec succès ! Vérifiez votre e-mail.");
+        form.reset();
+      }, function(error) {
+        alert("Erreur, veuillez réessayer : " + JSON.stringify(error));
+      });
+    });
   </script>
 </body>
 </html>
