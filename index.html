@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>♡ Air Supplier ♡</title>
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1 class="Bienvenue">Bienvenue sur Air supplier !</h1>
@@ -22,7 +22,7 @@
     </form>
 
     <div>
-        <a href="{{ url_for('apropos') }}" class="div5">En savoir plus</a>
+        <a href="apropos.html" class="div5">En savoir plus</a>
     </div>
 
     <h2 style="text-align:center; margin-top:50px;color: aliceblue;">Store :</h2>
@@ -47,6 +47,7 @@
         </p>
 
         <button class="pay-button">Procéder au paiement</button>
+
     </div>
 
     <!-- Article 2 -->
@@ -102,13 +103,10 @@ document.querySelectorAll('.article').forEach(article => {
         const totalPrice = parseFloat(discountedPriceDisplay.textContent);
 
         // Ici tu peux rediriger vers la page de paiement ou intégrer Stripe/PayPal
-        alert(`Vous avez choisi ${quantity} article(s) pour un total de €${totalPrice}.`);
         // Exemple de redirection : 
-        // window.location.href = `/checkout?quantity=${quantity}&price=${totalPrice}`;
+        window.location.href = `checkout.html?quantity=${quantity}&price=${totalPrice}`;
     });
 });
 </script>
 </body>
 </html>
-
-
