@@ -7,6 +7,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  color: #fff;
 }
 
 /* Titres */
@@ -34,16 +35,19 @@ small {
   font-size: 0.6em;
 }
 
-/* Formulaire */
+/* Formulaire ancré */
 form {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 30px auto 50px auto;
+  width: 90%;
+  max-width: 400px;
+  background: rgba(20, 20, 20, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
 }
 
 input, textarea {
-  width: 300px;
+  width: 100%;
   padding: 10px;
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
@@ -53,6 +57,7 @@ input, textarea {
   border-radius: 15px;
   outline: none;
   transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
 input:focus, textarea:focus {
@@ -78,11 +83,12 @@ textarea {
   display: inline-block;
 }
 
-.Envoyer:hover, .div5:hover, button:hover{
+.Envoyer:hover, .div5:hover, button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px #9d4edd;
 }
 
+/* Bouton “En savoir plus” */
 .div5 {
   position: fixed;
   bottom: 20px;
@@ -150,7 +156,7 @@ textarea {
   min-width: 80px;
 }
 
-.range_article{
+.range_article {
   width: 250px;
   padding: 10px;
   font-size: 1rem;
@@ -175,9 +181,8 @@ textarea {
   color: aliceblue;
 }
 
-/* --- Media Queries pour mobile --- */
+/* --- Media Queries Mobile --- */
 @media (max-width: 768px) {
-  /* Articles et layout */
   .articles {
     flex-direction: column;
     gap: 20px;
@@ -202,7 +207,8 @@ textarea {
   }
 
   form {
-    bottom: 10px;
+    margin: 20px auto 50px auto;
+    width: 95%;
   }
 
   .div5 {
@@ -210,7 +216,6 @@ textarea {
     right: 10px;
   }
 
-  /* Titres pour téléphone uniquement */
   .Bienvenue {
     font-size: 50px;
     height: auto;
