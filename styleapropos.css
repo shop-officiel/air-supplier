@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1598347104365-2263f1870f8a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+.Bienvenue {
+    margin: 0;
+    display: grid;
+    place-items: start center;
+    font-size: 85px;
+    font-family: "Kate", sans-serif;
+    height: 175px;
+    background-image: url("https://media.istockphoto.com/id/1212605233/fr/photo/fond-brumeux-abstrait-dynamique-neon-couleurs-fum%C3%A9e-rose-et-bleu-clair.jpg?b=1&s=612x612&w=0&k=20&c=75CyiJkwHn2VsnC4PJjgNTmt9oHAUb6QpN7WdgQt5fk=");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+
+#apropos {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+#apropos h1, #apropos h2 {
+    text-align: center;
+    color: #102157;
+    margin-top: 30px;
+}
+
+#apropos h1 {
+    font-size: 50px;
+}
+
+#apropos h2 {
+    font-size: 28px;
+}
+
+#apropos p {
+    color: #555;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+#apropos ul {
+    color: #555;
+    margin: 10px 0 20px 20px;
+    padding: 0;
+    list-style-type: disc;
+}
+
+#apropos ul li {
+    margin-bottom: 10px;
+}
+
+#apropos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#apropos table th, #apropos table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+#apropos table th {
+    background-color: #102157;
+    color: white;
+}
+
+
+.div5 {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(-134deg, #102157, #070516);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px auto;
+}
+
+.div5:hover {
+    transform: scale(1.05);
+    background: linear-gradient(-134deg, #1b2d77, #0a0726);
+}

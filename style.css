@@ -1,0 +1,161 @@
+/* --- Général --- */
+body {
+  margin-left: 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1598347104365-2263f1870f8a?fm=jpg&q=60&w=3000");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Titres */
+.Bienvenue {
+  margin: 0;
+  display: grid;
+  place-items: start center;
+  font-size: 85px;
+  font-family: "Kate";
+  height: 175px;
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/768/685/desktop-wallpaper-neon-pink-and-blue-blue-purple-neon-light.jpg");
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slogan {
+  color: rgb(109, 0, 143);
+  margin-left: 20px;
+  position: relative;
+  bottom: 70px;
+}
+
+small {
+  color: rgb(184, 15, 184);
+  font-size: 0.6em;
+}
+
+/* Formulaire */
+form {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input, textarea {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(20, 20, 20, 0.8);
+  color: #fff;
+  border: 2px solid #3a0ca3;
+  border-radius: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #9d4edd;
+  box-shadow: 0 0 15px #9d4edd;
+}
+
+textarea {
+  resize: none;
+  padding: 12px 14px;
+}
+
+/* Boutons */
+.Envoyer, .div5, .add-to-cart, .article a {
+  padding: 10px 20px;
+  background: linear-gradient(-134deg, #102157, #070516);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.Envoyer:hover, .div5:hover, .add-to-cart:hover, .article a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #9d4edd;
+}
+
+/* Bouton En savoir plus */
+.div5 {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  outline: none;
+}
+
+/* Articles */
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.article {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.article h3 {
+  margin: 15px 0 10px 0;
+  color: #102157;
+}
+
+.article p {
+  color: #555;
+  font-size: 14px;
+}
+
+.article-images {
+    display: flex;
+    justify-content: center; /* centrer les images */
+    gap: 10px; /* espace entre les images */
+    flex-wrap: wrap; /* pour que ça passe à la ligne si écran trop petit */
+    margin: 15px 0;
+}
+
+.article-images img {
+    width: 30%; /* chaque image prend 30% de la largeur du conteneur */
+    border-radius: 10px;
+    object-fit: cover; /* les images gardent leur proportions */
+}
+
+.range_article{
+width: 250px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(20, 20, 20, 0.8);
+  color: #fff;
+  border: 2px solid #3a0ca3;
+  border-radius: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+
+}
+
+ 
+
+.range_article:focus {
+  border-color: #9d4edd;
+  box-shadow: 0 0 15px #9d4edd;
+}

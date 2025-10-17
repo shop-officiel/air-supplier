@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡ Air Supplier ♡</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 class="Bienvenue">Bienvenue sur Air supplier !</h1>
+    <h1 class="slogan">Air supplier <small> Votre vie, Votre luxe.</small></h1>
+    
+    <form action="https://formspree.io/f/xnngwpvp" method="POST">
+        <div>
+            <input type="email" name="mail" placeholder="exemple@mail.com">
+        </div>
+        <div>
+            <label for="name"></label><br>
+            <textarea name="message" cols="50" rows="10" placeholder="j'ai un problème pour le paiement ... "></textarea>
+        </div>
+        <button class="Envoyer" type="submit">Envoyer</button>
+    </form>
+
+    <div>
+        <a href="{{ url_for('apropos') }}" class="div5">En savoir plus</a>
+    </div>
+
+    <h2 style="text-align:center; margin-top:50px;color: aliceblue;">Store :</h2>
+    <div class="articles">
+
+    <!-- Article 1 -->
+    <div class="article">
+        <h3>AirPods Pro 2</h3>
+
+        <div class="article-images">
+            <img src="{{ url_for('static', filename='photo1.jpg') }}" alt="AirPods Pro 2">
+            <img src="{{ url_for('static', filename='photo2.jpg') }}" alt="AirPods Pro 2">
+            <img src="{{ url_for('static', filename='photo3.jpg') }}" alt="AirPods Pro 2">
+        </div>
+
+        <label for="quantity">Quantité :</label>
+        <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="94.99">
+
+        <p>Prix : 
+            <span class="original-price" style="text-decoration: line-through;">94.99</span> € 
+            <span class="discounted-price">94.99</span> €
+        </p>
+
+        <button class="pay-button">Procéder au paiement</button>
+    </div>
+
+    <!-- Article 2 -->
+    <div class="article">
+        <h3>Louis Vuitton, California Dream</h3>
+        <p>+1000 différents, demandez un devis au bas de la page.</p>
+
+        <div class="article-images">
+            <img src="{{ url_for('static', filename='photolvcd.jpg') }}" alt="Californiadream">
+            <img src="{{ url_for('static', filename='photolvcd2.jpg') }}" alt="Californiadream">
+            <img src="{{ url_for('static', filename='photolvcd3.jpg') }}" alt="Californiadream">
+        </div>
+
+        <label for="quantity">Quantité :</label>
+        <input type="number" class="quantity range_article" min="1" max="10" value="1" data-price="299.99">
+
+        <p>Prix : 
+            <span class="original-price" style="text-decoration: line-through;">299.99</span> € 
+            <span class="discounted-price">299.99</span> €
+        </p>
+
+        <button class="pay-button">Procéder au paiement</button>
+    </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.article').forEach(article => {
+    const quantityInput = article.querySelector('.quantity');
+    const originalPriceDisplay = article.querySelector('.original-price');
+    const discountedPriceDisplay = article.querySelector('.discounted-price');
+    const payButton = article.querySelector('.pay-button');
+    const unitPrice = parseFloat(quantityInput.dataset.price);
+
+    function updatePrice() {
+        let quantity = parseInt(quantityInput.value);
+        if(quantity < 1) quantity = 1;
+        if(quantity > 10) quantity = 10;
+        quantityInput.value = quantity;
+
+        const totalOriginal = (unitPrice * quantity).toFixed(2);
+        const totalDiscounted = ((unitPrice - unitPrice * 0.02 * (quantity - 1)) * quantity).toFixed(2);
+
+        originalPriceDisplay.textContent = totalOriginal;
+        discountedPriceDisplay.textContent = totalDiscounted;
+    }
+
+    quantityInput.addEventListener('input', updatePrice);
+    updatePrice();
+
+    payButton.addEventListener('click', () => {
+        const quantity = parseInt(quantityInput.value);
+        const totalPrice = parseFloat(discountedPriceDisplay.textContent);
+
+        // Ici tu peux rediriger vers la page de paiement ou intégrer Stripe/PayPal
+        alert(`Vous avez choisi ${quantity} article(s) pour un total de €${totalPrice}.`);
+        // Exemple de redirection : 
+        // window.location.href = `/checkout?quantity=${quantity}&price=${totalPrice}`;
+    });
+});
+</script>
+</body>
+</html>
