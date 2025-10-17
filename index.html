@@ -90,7 +90,7 @@ document.querySelectorAll('.article').forEach(article => {
         quantityInput.value = quantity;
 
         const totalOriginal = (unitPrice * quantity).toFixed(2);
-        const totalDiscounted = ((unitPrice - unitPrice * 0.02 * (quantity - 1)) * quantity).toFixed(2);
+        const totalDiscounted = ((unitPrice - unitPrice * 0.05 * (quantity - 1)) * quantity).toFixed(2);
 
         originalPriceDisplay.textContent = totalOriginal;
         discountedPriceDisplay.textContent = totalDiscounted;
@@ -109,3 +109,4 @@ document.querySelectorAll('.article').forEach(article => {
 </script>
 </body>
 </html>
+
