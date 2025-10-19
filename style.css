@@ -1,13 +1,12 @@
 /* --- Général --- */
 body {
-  margin: 0;
+  margin-left: 0;
   min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
   background-image: url("https://images.unsplash.com/photo-1598347104365-2263f1870f8a?fm=jpg&q=60&w=3000");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #fff;
 }
 
 /* Titres */
@@ -35,19 +34,16 @@ small {
   font-size: 0.6em;
 }
 
-/* Formulaire ancré */
+/* Formulaire */
 form {
-  margin: 30px auto 50px auto;
-  width: 90%;
-  max-width: 400px;
-  background: rgba(20, 20, 20, 0.8);
-  padding: 20px;
-  border-radius: 15px;
-  color: #fff;
+  position: fixed;
+  bottom: 30px;
+  left: 30px; /* place le formulaire à gauche */
+  transform: none; /* plus de centrage */
 }
 
-input, textarea {
-  width: 100%;
+textarea{
+  width: 500px;
   padding: 10px;
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
@@ -57,7 +53,19 @@ input, textarea {
   border-radius: 15px;
   outline: none;
   transition: all 0.3s ease;
-  margin-top: 10px;
+}
+
+input {
+  width: 250px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(20, 20, 20, 0.8);
+  color: #fff;
+  border: 2px solid #3a0ca3;
+  border-radius: 15px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
@@ -71,7 +79,7 @@ textarea {
 }
 
 /* Boutons */
-.Envoyer, .div5, button {
+.Envoyer, .div5{
   padding: 10px 20px;
   background: linear-gradient(-134deg, #102157, #070516);
   color: #fff;
@@ -83,12 +91,12 @@ textarea {
   display: inline-block;
 }
 
-.Envoyer:hover, .div5:hover, button:hover {
+.Envoyer:hover, .div5:hover{
   transform: scale(1.05);
   box-shadow: 0 0 15px #9d4edd;
 }
 
-/* Bouton “En savoir plus” */
+/* Bouton En savoir plus */
 .div5 {
   position: fixed;
   bottom: 20px;
@@ -96,20 +104,20 @@ textarea {
   outline: none;
 }
 
-/* Articles */
+
 .articles {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   gap: 20px;
-  margin: 40px 0;
+  margin: 20px ;
 }
 
 .article {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 15px;
-  width: 300px;
+  width: 400px;
   background-color: rgba(255, 255, 255, 0.9);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -117,7 +125,7 @@ textarea {
 
 .article img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .article h3 {
@@ -126,38 +134,26 @@ textarea {
 }
 
 .article p {
-  color: #555;
-  font-size: 14px;
+  color: #000000;
+  font-size: 15px;
 }
 
 .article-images {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 15px 0;
+    display: flex;
+    justify-content: center; /* centrer les images */
+    gap: 10px; /* espace entre les images */
+    flex-wrap: wrap;
+    margin: 15px 0;
 }
 
 .article-images img {
-  width: 30%;
-  border-radius: 10px;
-  object-fit: cover;
+    width: 35%; /* chaque image prend 30% de la largeur du conteneur */
+    border-radius: 10px;
+    object-fit: cover; /* les images gardent leur proportions */
 }
 
-/* Inputs de quantité */
-.quantity-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.quantity-container label {
-  min-width: 80px;
-}
-
-.range_article {
-  width: 250px;
+.range_article{
+width: 250px;
   padding: 10px;
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
@@ -167,65 +163,31 @@ textarea {
   border-radius: 15px;
   outline: none;
   transition: all 0.3s ease;
+
 }
+
+ 
 
 .range_article:focus {
   border-color: #9d4edd;
   box-shadow: 0 0 15px #9d4edd;
 }
 
-/* Titres store */
-.store-title {
-  text-align: center;
-  margin-top: 50px;
-  color: aliceblue;
+button{
+  padding: 10px 20px;
+  background: linear-gradient(-134deg, #102157, #070516);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+
 }
 
-/* --- Media Queries Mobile --- */
-@media (max-width: 768px) {
-  .articles {
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
-  }
+button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #9d4edd;
 
-  .article {
-    width: 100%;
-  }
-
-  .article-images img {
-    width: 60%;
-  }
-
-  .quantity-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  input, textarea {
-    width: 90%;
-  }
-
-  form {
-    margin: 20px auto 50px auto;
-    width: 95%;
-  }
-
-  .div5 {
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .Bienvenue {
-    font-size: 50px;
-    height: auto;
-    text-align: center;
-  }
-
-  .slogan {
-    font-size: 18px;
-    bottom: 0;
-    margin-left: 0;
-    text-align: center;
-  }
 }
