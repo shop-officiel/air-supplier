@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,11 @@
     <h1 class="Bienvenue">Bienvenue sur Air supplier !</h1>
     <h1 class="slogan">Air supplier <small> Votre vie, Votre luxe.</small></h1>
     
-    <form action="https://formspree.io/f/xnngwpvp" method="POST">
+    <form action="https://formspree.io/f/xnngwpvp" method="POST" class="contact-form">
         <div>
             <input type="email" name="mail" placeholder="exemple@mail.com">
         </div>
         <div>
-            <label for="name"></label><br>
             <textarea name="message" cols="50" rows="10" placeholder="Je souhaite commander 4 boites d'airpods pro2 pour un total de 408.50 €, je prends la livraison monidal relais, etc..."></textarea>
         </div>
         <button class="Envoyer" type="submit">Envoyer</button>
@@ -25,201 +24,60 @@
         <a href="apropos.html" class="div5">En savoir plus</a>
     </div>
 
-    <h1 style="text-align:center; margin-top:50px;color: aliceblue;">Nos Produits :</h1>
+    <h1 class="nos-produits">Nos Produits :</h1>
     <div class="articles">
+        <!-- Article 1 -->
+        <div class="article">
+            <h3>AirPods Pro 2</h3>
+            <div class="article-images">
+                <img src="photo1.jpg" alt="AirPods Pro 2">
+                <img src="photo2.jpg" alt="AirPods Pro 2">
+                <img src="photo3.jpg" alt="AirPods Pro 2">
+            </div>
+            <div class="purchase-info">
+                <p>
+                    <span class="original-price">200.00</span> €
+                    <span class="discounted-price">94.99</span> €
+                </p>
+                <p class="discount-info">-5 % par article supplémentaire</p>
+            </div>
+        </div>
 
-
-<div class="article">
-    <h3>AirPods Pro 2</h3>
-
-    <div class="article-images">
-        <img src="photo1.jpg" alt="AirPods Pro 2">
-        <img src="photo2.jpg" alt="AirPods Pro 2">
-        <img src="photo3.jpg" alt="AirPods Pro 2">
+        <!-- Article 2 -->
+        <div class="article">
+            <h3>Louis Vuitton, California Dream</h3>
+            <p class="article-description">+1000 parfums différents, demandez un devis au bas de la page.</p>
+            <div class="article-images">
+                <img src="photolvcd.jpg" alt="Californiadream">
+                <img src="photolvcd2.jpg" alt="Californiadream">
+                <img src="photolvcd3.jpg" alt="Californiadream">
+            </div>
+            <div class="purchase-info">
+                <p>
+                    <span class="original-price">299.99</span> €
+                    <span class="discounted-price">179.99</span> €
+                </p>
+                <p class="discount-info">-5 % par article supplémentaire</p>
+            </div>
+        </div>
     </div>
 
-    <div class="purchase-info">
-        <p>
-            <span class="original-price" style="text-decoration: line-through;">200.00</span> €
-            <span class="discounted-price">94.99</span> €
-        </p>
-        <p class="discount-info">-5 % par article supplémentaire</p>
+    <div class="order-instructions">
+        <h2>Comment passer commande ?</h2>
+        <ol>
+            <li>Choisissez l'article que vous souhaitez acheter.</li>
+            <li>Notez le nombre d'articles désirés.</li>
+            <li>Choisissez votre mode de livraison : <strong>Mondial Relay</strong> (conseillé) ou Domicile.</li>
+            <li>Remplissez le formulaire en bas de la page avec :
+                <ul>
+                    <li>Nom de l'article</li>
+                    <li>Quantité souhaitée</li>
+                    <li>Mode de livraison</li>
+                </ul>
+            </li>
+            <li>Après avoir soumis le formulaire, un lien vers un article <strong>Vinted</strong> vous sera envoyé pour finaliser votre commande.</li>
+        </ol>
+        <p><em>Note :</em> Veuillez vérifier attentivement votre email avant de soumettre le formulaire pour que nous puissions vous envoyer le lien.</p>
     </div>
-</div>
-
-<div class="article">
-    <h3>Louis Vuitton, California Dream</h3>
-    <p class="article-description">+1000 parfums différents, demandez un devis au bas de la page.</p>
-
-    <div class="article-images">
-        <img src="photolvcd.jpg" alt="Californiadream">
-        <img src="photolvcd2.jpg" alt="Californiadream">
-        <img src="photolvcd3.jpg" alt="Californiadream">
-    </div>
-
-    <div class="purchase-info">
-        <p>
-            <span class="original-price" style="text-decoration: line-through;">299.99</span> €
-            <span class="discounted-price">179.99</span> €
-        </p>
-        <p class="discount-info">-5 % par article supplémentaire</p>
-    </div>
-</div>
-<div class="order-instructions">
-    <h2>Comment passer commande ?</h2>
-    <ol>
-        <li>Choisissez l'article que vous souhaitez acheter.</li>
-        <li>Notez le nombre d'articles désirés.</li>
-        <li>Choisissez votre mode de livraison :
-            <strong>Mondial Relay</strong> (conseillé) ou Domicile.</li>
-        <li>Remplissez le formulaire en bas de la page avec :
-            <ul>
-                <li>Nom de l'article</li>
-                <li>Quantité souhaitée</li>
-                <li>Mode de livraison</li>
-            </ul>
-        </li>
-        <li>Après avoir soumis le formulaire, un lien vers un article <strong>Vinted</strong> vous sera envoyé pour finaliser votre commande.</li>
-    </ol>
-    <p><em>Note :</em> Veuillez vérifier attentivement votre email avant de soumettre le formulaire pour que nous puissions vous envoyer le lien.</p>
-</div>
-<style>
-.order-instructions {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 2px solid #4b0082;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 30px auto;
-    width: 90%;
-    max-width: 800px;
-    font-family: 'Montserrat', sans-serif;
-    color: #222;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.order-instructions h2 {
-    color: #4b0082;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 1.8rem;
-}
-
-.order-instructions ol {
-    padding-left: 20px;
-    line-height: 1.6;
-}
-
-.order-instructions li {
-    margin-bottom: 10px;
-}
-
-.order-instructions ul {
-    padding-left: 20px;
-    list-style-type: disc;
-}
-
-.order-instructions strong {
-    color: #e60023;
-}
-
-.order-instructions em {
-    color: #555;
-}
-.article {
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 15px;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.95);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin: 15px;
-}
-
-.article:hover {
-    transform: translateY(-13px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Titres */
-.article h3 {
-    font-size: 1.8rem;
-    color: #4b0082;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.article-description {
-    font-size: 0.95rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Images */
-.article-images {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-}
-
-.article-images img {
-    width: 30%;
-    border-radius: 12px;
-    object-fit: cover;
-    transition: transform 0.4s, box-shadow 0.4s;
-    cursor: default;
-}
-
-.article-images img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
-}
-
-
-.purchase-info {
-    background-color: rgba(245, 245, 245, 0.9);
-    border-radius: 12px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #dcdcdc;
-}
-
-.original-price {
-    text-decoration: line-through;
-    color: gray;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.discounted-price {
-    font-weight: bold;
-    color: #e60023;
-    font-size: 1.2rem;
-    margin-left: 8px;
-}
-
-.discount-info {
-    font-size: 0.85rem;
-    color: #4b0082;
-    font-weight: 600;
-    background-color: rgba(200, 200, 255, 0.2);
-    padding: 5px 10px;
-    border-radius: 8px;
-    margin-top: 3px;
-}
-
-.purchase-info p {
-    margin: 0;
-}
-</style>
-
-
 </body>
 </html>
-
-
